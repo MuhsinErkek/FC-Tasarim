@@ -3,21 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#f7f3ec">
+
 <title>Adana El Yapımı Gelin Tacı &amp; Buketi | Fc Tasarım</title>
 <meta name="description" content="Adana'da el yapımı gelin tacı, gelin buketi, nakışlı duvak ve kişiye özel gelin sabahlığı tasarımları. Hayalinizdeki gelin aksesuarı için bize ulaşın.">
+<link rel="canonical" href="https://fctasarim.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adana El Yapımı Gelin Tacı &amp; Buketi | Fc Tasarım">
+<meta property="og:description" content="Adana'da el yapımı gelin tacı, gelin buketi, nakışlı duvak ve kişiye özel gelin sabahlığı tasarımları.">
+<meta property="og:url" content="https://fctasarim.com/">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 :root{
+  color-scheme: light only;
   --ivory: #f7f3ec;
   --cream: #efe9de;
   --sage: #a9ad9b;
-  --sage-d: #6f7463;
+  --sage-d: #5c6052;
   --ink: #2a2a26;
   --line: #ddd5c6;
   --white: #ffffff;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -39,7 +53,7 @@ header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(247,243,236,.95);
+  background:rgba(247,243,236,.96);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
@@ -50,6 +64,7 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:1rem 1.25rem;
+  position:relative;
 }
 .logo{
   font-family:'Cormorant Garamond',serif;
@@ -60,31 +75,49 @@ header{
   color:var(--ink);
   font-weight:600;
 }
-.nav ul{
+
+.nav-links{
   display:flex;
   gap:1.6rem;
   list-style:none;
   font-size:.9rem;
 }
-.nav a{
+.nav-links a{
   color:inherit;
   text-decoration:none;
   transition:color .2s ease;
 }
-.nav a:hover{color:var(--sage-d)}
+.nav-links a:hover{color:var(--sage-d)}
+
+.hamburger{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:.5rem;
+  z-index:101;
+}
+.hamburger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--ink);
+  margin:5px 0;
+  transition:all .3s ease;
+}
 
 /* Hero Section */
-.hero{
-  min-height:85vh;
+.hero-wrapper{
+  width:100%;
+  min-height:80vh;
   display:grid;
   place-items:center;
   text-align:center;
   padding:4rem 1.25rem;
-  background:radial-gradient(circle at 50% 30%, #ffffff 0%, var(--ivory) 70%), linear-gradient(160deg, var(--cream), var(--sage) 140%);
-  position:relative;
+  background:linear-gradient(160deg, var(--ivory) 0%, var(--cream) 50%, var(--sage) 150%);
 }
 .hero-content{
-  max-width:700px;
+  max-width:750px;
   animation:fadeIn 1s ease-out;
 }
 .hero small{
@@ -94,6 +127,7 @@ header{
   color:var(--sage-d);
   display:block;
   margin-bottom:1rem;
+  font-weight:500;
 }
 .hero h1{
   font-size:clamp(2.8rem, 6vw, 4.8rem);
@@ -105,11 +139,13 @@ header{
   color:var(--sage-d);
 }
 .hero p{
-  max-width:560px;
+  max-width:580px;
   margin:0 auto 2.5rem;
   font-size:1.05rem;
-  color:#4a4a44;
+  color:#3a3a34;
 }
+
+/* Buttons */
 .btn-group{
   display:flex;
   gap:1rem;
@@ -160,17 +196,14 @@ section{
   font-size:.75rem;
   text-transform:uppercase;
   margin-bottom:.6rem;
+  font-weight:500;
 }
 .alt-bg{
   background:var(--cream);
   width:100%;
 }
-.alt-bg > section{
-  max-width:1100px;
-  margin:auto;
-}
 
-/* Cards Grid */
+/* Cards & Images */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
@@ -180,42 +213,42 @@ section{
   background:var(--white);
   border:1px solid var(--line);
   transition:transform .3s ease, box-shadow .3s ease;
+  overflow:hidden;
 }
 .card:hover{
   transform:translateY(-5px);
   box-shadow:0 12px 25px rgba(0,0,0,.06);
 }
-.ph{
+.img-container{
   aspect-ratio:4/5;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:var(--white);
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;
-  font-size:1.2rem;
-  text-align:center;
-  padding:1.5rem;
+  width:100%;
   position:relative;
-  background-size:cover;
-  background-position:center;
+  background:linear-gradient(135deg, var(--cream), var(--sage));
+  overflow:hidden;
 }
-.ph::after{
-  content:'';
+.img-container img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+}
+.card:hover .img-container img{
+  transform:scale(1.04);
+}
+.img-overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.15);
+  background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 60%);
+  display:flex;
+  align-items:flex-end;
+  padding:1.2rem;
+  color:var(--white);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  font-style:italic;
+  text-shadow:0 1px 3px rgba(0,0,0,0.8);
 }
-.ph span{
-  position:relative;
-  z-index:1;
-  text-shadow:0 2px 4px rgba(0,0,0,.3);
-}
-.p1{background:linear-gradient(135deg, #c5beb1, #8f9383)}
-.p2{background:linear-gradient(135deg, #d3ccbe, #a3a796)}
-.p3{background:linear-gradient(135deg, #b8bdab, #7a7e6e)}
-.p4{background:linear-gradient(135deg, #cecaa0, #989c8c)}
 
 .card .t{
   padding:1.5rem;
@@ -226,7 +259,7 @@ section{
 }
 .card p{
   font-size:.92rem;
-  color:#555;
+  color:#4a4a44;
 }
 
 /* Steps */
@@ -239,7 +272,7 @@ section{
 .steps b{
   font-family:'Cormorant Garamond',serif;
   font-size:3.2rem;
-  color:var(--sage);
+  color:var(--sage-d);
   font-weight:400;
   display:block;
   line-height:1;
@@ -254,22 +287,32 @@ section{
   color:#555;
 }
 
-/* Gallery Grid */
+/* Gallery */
 .gal{
   display:grid;
   grid-template-columns:repeat(4, 1fr);
   gap:.8rem;
 }
-.gal .ph{
+.gal-item{
   aspect-ratio:1;
   cursor:pointer;
-  transition:opacity .3s ease;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(135deg, var(--ivory), var(--cream));
+  border:1px solid var(--line);
 }
-.gal .ph:hover{
+.gal-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:opacity .3s, transform .3s;
+}
+.gal-item:hover img{
   opacity:.9;
+  transform:scale(1.05);
 }
 
-/* FAQ Details */
+/* FAQ */
 .faq-container{
   max-width:760px;
   margin:auto;
@@ -302,10 +345,10 @@ details[open] summary::after{
 details p{
   margin-top:.8rem;
   font-size:.95rem;
-  color:#555;
+  color:#4a4a44;
 }
 
-/* Form & Contact */
+/* Form */
 form{
   max-width:600px;
   margin:auto;
@@ -338,8 +381,44 @@ input:focus, textarea:focus, select:focus{
   font-weight:500;
   transition:color .2s;
 }
-.wa-btn:hover{
-  color:var(--ink);
+.wa-btn:hover{color:var(--ink)}
+
+/* Floating WhatsApp & Instagram Buttons */
+.floating-cta-container{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:999;
+}
+.floating-cta-btn{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#ffffff;
+  box-shadow:0 4px 16px rgba(0,0,0,0.22);
+  transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow .3s;
+  text-decoration:none;
+}
+.floating-cta-btn:hover{
+  transform:scale(1.12);
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+}
+.floating-wa{
+  background-color:#25D366;
+}
+.floating-ig{
+  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+.floating-cta-btn svg{
+  width:28px;
+  height:28px;
+  fill:currentColor;
 }
 
 /* Lightbox Modal */
@@ -350,14 +429,14 @@ input:focus, textarea:focus, select:focus{
   z-index:1000;
   display:none;
   place-items:center;
-  padding:2rem;
+  padding:1.5rem;
 }
 .lightbox.active{
   display:grid;
 }
 .lightbox-content{
-  max-width:90%;
-  max-height:80vh;
+  max-width:600px;
+  width:100%;
   background:var(--ivory);
   padding:2rem;
   border:1px solid var(--line);
@@ -370,9 +449,10 @@ input:focus, textarea:focus, select:focus{
   right:1rem;
   background:none;
   border:none;
-  font-size:1.5rem;
+  font-size:1.8rem;
   cursor:pointer;
   color:var(--ink);
+  line-height:1;
 }
 
 /* Footer */
@@ -382,24 +462,36 @@ footer{
   text-align:center;
   padding:3rem 1rem;
   font-size:.88rem;
-  border-top:1px solid #3a3a35;
-}
-footer a{
-  color:#fff;
-  text-decoration:none;
 }
 
-/* Animations & Responsive */
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(15px)}
   to{opacity:1;transform:translateY(0)}
 }
 
 @media(max-width:768px){
-  .nav ul{display:none}
+  .hamburger{display:block}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--ivory);
+    flex-direction:column;
+    padding:1.5rem;
+    gap:1.2rem;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 10px 15px rgba(0,0,0,.05);
+    text-align:center;
+  }
+  .nav-links.active{display:flex}
   .gal{grid-template-columns:repeat(2, 1fr)}
   section{padding:3.5rem 1rem}
-  .hero{min-height:70vh;padding:3rem 1rem}
+  .hero-wrapper{min-height:70vh;padding:3rem 1rem}
+  .floating-cta-container{bottom:16px;right:16px}
+  .floating-cta-btn{width:46px;height:46px}
+  .floating-cta-btn svg{width:24px;height:24px}
 }
 </style>
 
@@ -408,32 +500,22 @@ footer a{
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Fc Wedding Accessories & Bridal Bouquet",
-  "image": "https://example.com/logo.jpg",
-  "description": "Adana'da el yapımı gelin tacı, özel gelin saç aksesuarları, canlı/kuru gelin buketleri, kişiye özel nakışlı duvak, gelin sabahlığı ve nedime setleri tasarımı.",
+  "image": "https://fctasarim.com/logo.jpg",
+  "description": "Adana'da el yapımı gelin tacı, özel gelin saç aksesuarları, gelin buketleri, kişiye özel nakışlı duvak ve gelin sabahlığı tasarımı.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Saatçi Apt, Kurtuluş, Şinasi Efendi Cd. 01160",
+    "streetAddress": "Saatçi Apt, Kurtuluş, Şinasi Efendi Cd. No:01160",
     "addressLocality": "Seyhan",
     "addressRegion": "Adana",
     "postalCode": "01160",
     "addressCountry": "TR"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 36.998,
-    "longitude": 35.325
-  },
   "url": "https://fctasarim.com",
   "telephone": "+905324675755",
-  "priceRange": "₺₺",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "11:00",
-      "closes": "18:00"
-    }
-  ]
+  "sameAs": [
+    "https://www.instagram.com/fctasarim/"
+  ],
+  "priceRange": "₺₺"
 }
 </script>
 </head>
@@ -442,7 +524,12 @@ footer a{
 <header>
   <nav class="nav">
     <a href="#" class="logo">Fc Tasarım</a>
-    <ul>
+    <button class="hamburger" id="menuToggle" aria-label="Menüyü Aç/Kapat">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#koleksiyon">Koleksiyon</a></li>
       <li><a href="#ozel">Kişiye Özel Nakış</a></li>
       <li><a href="#surec">Süreç</a></li>
@@ -454,18 +541,18 @@ footer a{
 </header>
 
 <main>
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Hero -->
+  <div class="hero-wrapper">
     <div class="hero-content">
       <small>Adana · El Yapımı Gelin Aksesuarları</small>
       <h1>En özel gününüz için,<br><em>size özel</em> tasarımlar</h1>
-      <p>Özenle tasarlanan el yapımı gelin tacı, canlı/yapay gelin buketleri, nakışlı duvaklar ve kişiye özel gelin sabahlıkları ile en unutulmaz anlarınıza zarafet katıyoruz.</p>
+      <p>Özenle tasarlanan el yapımı gelin tacı, gelin buketleri, nakışlı duvaklar ve kişiye özel gelin sabahlıkları ile en mutlu anlarınıza eşlik ediyoruz.</p>
       <div class="btn-group">
-        <a class="btn fill" href="#iletisim">Randevu &amp; Sipariş</a>
-        <a class="btn" href="#koleksiyon">Koleksiyonu Keşfet</a>
+        <a class="btn fill" href="#iletisim">Sipariş &amp; Bilgi</a>
+        <a class="btn" href="#koleksiyon">Koleksiyonu Gör</a>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Koleksiyon -->
   <section id="koleksiyon">
@@ -474,47 +561,51 @@ footer a{
       <h2>El Yapımı Tasarımlar</h2>
     </div>
     <div class="cards">
-      <!-- Fotoğraf Yer Tutucu: Saç Aksesuarı Görseli (Inci/Kristal gelin tacı ve tokaları) -->
       <article class="card">
-        <div class="ph p1" loading="lazy">
-          <span>İnci &amp; Kristal Saç Aksesuarı</span>
+        <div class="img-container">
+          <img src="https://images.pexels.com/photos/291759/pexels-photo-291759.jpeg?auto=compress&cs=tinysrgb&w=600" 
+               alt="El yapımı gelin tacı ve saç aksesuarı" loading="lazy">
+          <div class="img-overlay">İnci &amp; Kristal Saç Aksesuarı</div>
         </div>
         <div class="t">
           <h3>El Yapımı Gelin Tacı</h3>
-          <p>İnci, yapay orkide ve kristal detaylı, elbisenizin çizgisine uygun zarafette gelin saç aksesuarları.</p>
+          <p>İnci, yapay orkide ve kristal detaylı, gelinliğinize tam uyum sağlayan gelin saç aksesuarları.</p>
         </div>
       </article>
 
-      <!-- Fotoğraf Yer Tutucu: Gelin Buketi Görseli (Şakayık, gül ve tül kurdele detaylı) -->
       <article class="card">
-        <div class="ph p2" loading="lazy">
-          <span>Gelin Buketi Tasarımları</span>
+        <div class="img-container">
+          <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600" 
+               alt="Özel tasarım gelin buketi Adana" loading="lazy">
+          <div class="img-overlay">Gelin Buketi Tasarımları</div>
         </div>
         <div class="t">
           <h3>Gelin Buketi Adana</h3>
-          <p>Canlı, kuru ve şakayık dokulu yapay çiçek seçenekleriyle konseptinize özel tasarlanan gelin buketleri.</p>
+          <p>Canlı veya kuru çiçek seçenekleriyle konseptinize özel hazırlanan gelin buketleri.</p>
         </div>
       </article>
 
-      <!-- Fotoğraf Yer Tutucu: Nakışlı Duvak Görseli (İsim ve tarih işlemeli transparan tül) -->
       <article class="card">
-        <div class="ph p3" loading="lazy">
-          <span>Nakışlı Duvak &amp; Fiyonk</span>
+        <div class="img-container">
+          <img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=600" 
+               alt="Kişiye özel nakışlı duvak" loading="lazy">
+          <div class="img-overlay">Nakışlı Duvak &amp; Fiyonk</div>
         </div>
         <div class="t">
           <h3>Nakışlı Duvak</h3>
-          <p>İşlemeli transparan tül duvaklar, kişiye özel harf ve tarih detaylı incelikli fiyonk tasarımları.</p>
+          <p>İşlemeli tül duvaklar, kişiye özel harf ve düğün tarihi detaylı fiyonk tasarımları.</p>
         </div>
       </article>
 
-      <!-- Fotoğraf Yer Tutucu: Gelin Sabahlığı Görseli (Saten, nakış işlemeli sabahlık) -->
       <article class="card">
-        <div class="ph p4" loading="lazy">
-          <span>Saten Gelin Sabahlığı</span>
+        <div class="img-container">
+          <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600" 
+               alt="Kişiye özel gelin sabahlığı" loading="lazy">
+          <div class="img-overlay">Saten Gelin Sabahlığı</div>
         </div>
         <div class="t">
           <h3>Kişiye Özel Gelin Sabahlığı</h3>
-          <p>Hazırlık anı için sırt veya bilek kısmına isim/tarih nakışlı ipek saten gelin ve nedime sabahlıkları.</p>
+          <p>Hazırlık anı için sırt ve bilek nakışlı ipek saten gelin ve nedime sabahlıkları.</p>
         </div>
       </article>
     </div>
@@ -531,24 +622,24 @@ footer a{
         <div class="card">
           <div class="t">
             <h3>İsimli Duvak Nakışı</h3>
-            <p>Duvağınızın ucuna veya kenarına işlenen eşsiz baş harfler, özel motifler ve düğün tarihiniz.</p>
+            <p>Duvağınızın ucuna işlenen eşsiz baş harfler, özel motifler ve düğün tarihiniz.</p>
           </div>
         </div>
         <div class="card">
           <div class="t">
             <h3>Buket Kurdelesi Nakışı</h3>
-            <p>Gelin buketinizin sapına bağlanan, üzerinizde "Till we are old and grey" veya isimlerinizin yazılı olduğu zarif kurdeleler.</p>
+            <p>Gelin buketinizin sapına bağlanan, üzerinizde isimlerinizin veya özel bir sözün yazılı olduğu saten kurdeleler.</p>
           </div>
         </div>
         <div class="card">
           <div class="t">
             <h3>Gelin Arabası Kurdelesi</h3>
-            <p>Arabanızın kapı kolları veya dikiz aynası için özel olarak hazırlanan isim ve tarih nakışlı saten şeritler.</p>
+            <p>Arabanızın kapı kolları veya aynası için özel hazırlanan isim ve tarih nakışlı şeritler.</p>
           </div>
         </div>
         <div class="card">
           <div class="t">
-            <h3>Nedime &amp; Hazırlık Setleri</h3>
+            <h3>Nedime Setleri</h3>
             <p>Kişiye özel uyku bandı, nedime sabahlıkları ve monogram nakışlı anı aksesuarları.</p>
           </div>
         </div>
@@ -566,22 +657,22 @@ footer a{
       <div>
         <b>01</b>
         <h3>Tasarım Görüşmesi</h3>
-        <p>Gelinliğinizi, düğün mekanınızı ve hayal ettiğiniz aksesuarları WhatsApp veya yüz yüze değerlendiriyoruz.</p>
+        <p>Gelinliğinizi ve hayal ettiğiniz aksesuarları WhatsApp veya atölyemizde değerlendiriyoruz.</p>
       </div>
       <div>
         <b>02</b>
-        <h3>Model &amp; Detay Seçimi</h3>
-        <p>Renk paletiniz doğrultusunda kullanılması gereken çiçek, taş, inci ve nakış yazı tiplerine karar veriyoruz.</p>
+        <h3>Detay Seçimi</h3>
+        <p>Renk paleti, çiçek, taş ve nakış yazı tiplerine birlikte karar veriyoruz.</p>
       </div>
       <div>
         <b>03</b>
-        <h3>Elde Hassas Üretim</h3>
-        <p>Seçilen her bir parça el işçiliği ve hassasiyetle atölyemizde kişiselleştirilerek hazırlanır.</p>
+        <h3>Elde Üretim</h3>
+        <p>Seçilen her bir parça el işçiliği ile atölyemizde özenle hazırlanır.</p>
       </div>
       <div>
         <b>04</b>
-        <h3>Güvenli Teslimat</h3>
-        <p>Gelin aksesuarınız özel kutusunda, düğün tarihinizden önce adresinize özenle ulaştırılır.</p>
+        <h3>Teslimat</h3>
+        <p>Gelin aksesuarınız özel kutusunda, düğün tarihinizden önce adresinize ulaştırılır.</p>
       </div>
     </div>
   </section>
@@ -593,16 +684,31 @@ footer a{
         <span>İlham Alın</span>
         <h2>Gelinlerimizden Kareler</h2>
       </div>
-      <!-- Fotoğraf Yer Tutucuları: Tıklandığında büyüyen Instagram tarzı portföy fotoğrafları -->
       <div class="gal">
-        <div class="ph p1" onclick="openLightbox('Kişiye Özel Nakışlı Sabahlık')" loading="lazy"><span>Görsel 1</span></div>
-        <div class="ph p2" onclick="openLightbox('Gelin Buketi &amp; Kurdele Detayı')" loading="lazy"><span>Görsel 2</span></div>
-        <div class="ph p3" onclick="openLightbox('İnci Detaylı El Yapımı Gelin Tacı')" loading="lazy"><span>Görsel 3</span></div>
-        <div class="ph p4" onclick="openLightbox('Harf Nakışlı Duvak')" loading="lazy"><span>Görsel 4</span></div>
-        <div class="ph p4" onclick="openLightbox('Orkide Saç Tokası')" loading="lazy"><span>Görsel 5</span></div>
-        <div class="ph p3" onclick="openLightbox('Hazırlık Anı Nedime Seti')" loading="lazy"><span>Görsel 6</span></div>
-        <div class="ph p2" onclick="openLightbox('Gelin Arabası İsimli Kurdele')" loading="lazy"><span>Görsel 7</span></div>
-        <div class="ph p1" onclick="openLightbox('Kristal Taşlı Gelin Aksesuarı')" loading="lazy"><span>Görsel 8</span></div>
+        <div class="gal-item" onclick="openLightbox('Kişiye Özel Nakışlı Sabahlık', 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Sabahlığı" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('Gelin Buketi Detayı', 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Buketi" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('El Yapımı Gelin Tacı', 'https://images.pexels.com/photos/291759/pexels-photo-291759.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/291759/pexels-photo-291759.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Tacı" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('Harf Nakışlı Duvak', 'https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Nakışlı Duvak" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('Nakışlı Buket Kurdelesi', 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Nakışlı Buket Kurdelesi" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('Hazırlık Anı Sabahlık', 'https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Hazırlığı" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('Gelin Arabası Kurdelesi', 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Arabası Kurdelesi" loading="lazy">
+        </div>
+        <div class="gal-item" onclick="openLightbox('Kristal Gelin Tacı', 'https://images.pexels.com/photos/2253867/pexels-photo-2253867.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/2253867/pexels-photo-2253867.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Kristal Aksesuar" loading="lazy">
+        </div>
       </div>
       <p style="text-align:center;margin-top:2.5rem;">
         <a class="btn" href="https://www.instagram.com/fctasarim/" target="_blank" rel="noopener">Instagram'da Bizi Takip Edin</a>
@@ -619,19 +725,19 @@ footer a{
     <div class="faq-container">
       <details>
         <summary>Siparişleri kaç gün öncesinden oluşturmam gerekir?</summary>
-        <p>El işçiliği ve nakış süreçleri zaman aldığından, özel tasarım el yapımı gelin tacı ve duvak siparişlerinizi düğün tarihinizden en az 2-3 hafta önce iletmenizi öneririz.</p>
+        <p>El işçiliği ve nakış süreçleri zaman aldığından, siparişlerinizi düğün tarihinizden en az 2-3 hafta önce iletmenizi öneririz.</p>
       </details>
       <details>
         <summary>Adana dışına kargo ile gönderim yapıyor musunuz?</summary>
-        <p>Evet, tüm Türkiye'ye ve yurt dışına korumalı ambalajlar içerisinde güvenli kargo ile gönderim yapmaktayız.</p>
+        <p>Evet, tüm Türkiye'ye ve yurt dışına korumalı ambalajlar içerisinde kargo ile gönderim yapmaktayız.</p>
       </details>
       <details>
-        <summary>Kişiye özel nakışlı duvak ve kurdeleler için metin sınırlandırması var mı?</summary>
-        <p>İsimleriniz, nikah tarihiniz veya sizin için anlamlı kısa bir sözü (örneğin "Forever &amp; Always") duvak, kurdele ve sabahlıklarınıza özenle işleyebilmekteyiz.</p>
+        <summary>Kişiye özel nakışlı duvak ve kurdeleler için metin sınırı var mı?</summary>
+        <p>İsimleriniz, nikah tarihiniz veya anlamlı kısa bir sözü duvak, kurdele ve sabahlıklarınıza işleyebilmekteyiz.</p>
       </details>
       <details>
-        <summary>Gelin buketinde canlı mı yoksa ıslak/kuru çiçek mi kullanıyorsunuz?</summary>
-        <p>Tercihinize göre canlı çiçek tasarımı yapılabildiği gibi, düğün sonrasında da hatıra olarak saklayabileceğiniz gerçek dokulu ıslak yapay ve kuru çiçek seçeneklerimiz de mevcuttur.</p>
+        <summary>Gelin buketinde canlı mı yoksa yapay çiçek mi kullanıyorsunuz?</summary>
+        <p>Tercihinize göre canlı çiçek tasarımı yapılabildiği gibi, hatıra olarak saklayabileceğiniz yapay ve kuru çiçek seçeneklerimiz de mevcuttur.</p>
       </details>
     </div>
   </section>
@@ -643,61 +749,141 @@ footer a{
         <span>Bize Ulaşın</span>
         <h2>Hayalinizi Birlikte Tasarlayalım</h2>
       </div>
-      <form onsubmit="handleFormSubmit(event)">
-        <input type="text" placeholder="Adınız Soyadınız" required aria-label="Adınız Soyadınız">
-        <input type="tel" placeholder="Telefon Numaranız" required aria-label="Telefon Numaranız">
-        <select aria-label="İlgilendiğiniz Ürün Grubu">
+      <form id="contactForm" onsubmit="handleFormSubmit(event)">
+        <input type="text" id="formName" placeholder="Adınız Soyadınız" required aria-label="Adınız Soyadınız">
+        
+        <!-- Kesinlikle Maksimum 11 Haneli Rakam Girişi Yapılan Telefon Inputu -->
+        <input type="tel" 
+               id="formPhone" 
+               placeholder="Telefon Numaranız (Örn: 05321234567)" 
+               required 
+               maxlength="11"
+               inputmode="numeric"
+               pattern="[0-9]{10,11}"
+               title="Lütfen en fazla 11 haneli geçerli bir telefon numarası giriniz."
+               oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)"
+               aria-label="Telefon Numaranız">
+
+        <select id="formProduct" aria-label="İlgilendiğiniz Ürün Grubu">
           <option value="" disabled selected>İlgilendiğiniz Ürün Grubu</option>
-          <option>El Yapımı Gelin Tacı &amp; Aksesuar</option>
-          <option>Gelin Buketi Adana</option>
-          <option>Nakışlı Duvak &amp; Fiyonk</option>
-          <option>Kişiye Özel Gelin Sabahlığı &amp; Nedime Seti</option>
+          <option value="Gelin Tacı & Saç Aksesuarı">El Yapımı Gelin Tacı &amp; Saç Aksesuarı</option>
+          <option value="Gelin Buketi">Gelin Buketi</option>
+          <option value="Nakışlı Duvak">Nakışlı Duvak &amp; Fiyonk</option>
+          <option value="Gelin Sabahlığı">Kişiye Özel Gelin Sabahlığı</option>
         </select>
-        <input type="date" aria-label="Düğün veya Nikah Tarihi">
-        <textarea rows="4" placeholder="Hayal ettiğiniz aksesuar detaylarını kısaca anlatın..." aria-label="Açıklama"></textarea>
-        <button class="btn fill" type="submit">İstek Gönder</button>
+        <input type="date" id="formDate" aria-label="Düğün Tarihi">
+        <textarea id="formMessage" rows="4" placeholder="Hayal ettiğiniz aksesuar detaylarını kısaca anlatın..." aria-label="Açıklama"></textarea>
+        <button class="btn fill" type="submit">WhatsApp İle Bilgi Alın</button>
       </form>
       
       <a class="wa-btn" href="https://wa.me/905324675755" target="_blank" rel="noopener">
-        WhatsApp ile Hızlı İletişime Geçin (+90 532 467 57 55)
+        Doğrudan WhatsApp İle Bağlanın (+90 532 467 57 55)
       </a>
     </section>
   </div>
 </main>
 
-<!-- Lightbox Modal Component -->
-<div id="lightboxModal" class="lightbox" onclick="closeLightbox(event)">
+<!-- Ekranın Sağ Altına Sabitlenen WhatsApp ve Instagram Yüzen Butonları -->
+<div class="floating-cta-container">
+  <a href="https://wa.me/905324675755" class="floating-cta-btn floating-wa" target="_blank" rel="noopener" aria-label="WhatsApp ile İletişime Geçin">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 2c-5.514 0-9.998 4.486-9.998 10 0 1.909.534 3.702 1.464 5.239l-1.5 5.481 5.625-1.472c1.473.812 3.161 1.252 4.409 1.252 5.515 0 10-4.486 10-10 0-5.514-4.485-10-10-10zm5.828 14.182c-.247.691-1.229 1.264-1.996 1.428-.523.112-1.206.202-3.504-.749-2.937-1.213-4.825-4.2-4.972-4.398-.146-.196-1.192-1.588-1.192-3.029 0-1.441.756-2.15 1.025-2.441.269-.292.585-.365.78-.365.195 0 .39.002.56.01.182.008.428-.069.67.511.247.592.839 2.052.912 2.2.073.148.122.321.024.516-.098.195-.147.316-.292.487-.146.171-.308.382-.44.512-.146.144-.298.302-.128.593.169.29.752 1.238 1.613 2.005 1.109.988 2.046 1.294 2.338 1.44.292.146.463.122.634-.073.171-.195.731-.851.926-1.143.195-.292.39-.244.658-.146.268.098 1.704.803 1.997.949.292.146.487.219.56.341.073.122.073.71-.174 1.401z"/>
+    </svg>
+  </a>
+  <a href="https://www.instagram.com/fctasarim/" class="floating-cta-btn floating-ig" target="_blank" rel="noopener" aria-label="Instagram Sayfamızı Ziyaret Edin">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightboxModal" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" onclick="closeLightbox(event)">
   <div class="lightbox-content">
-    <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
-    <h3 id="lightboxTitle" style="font-size:1.8rem; margin-bottom:1rem;">Görsel Detayı</h3>
-    <p style="color:#666;">[Seçilen Tasarıma Ait Yüksek Çözünürlüklü Fotoğraf]</p>
+    <button class="lightbox-close" onclick="closeLightboxDirect()" aria-label="Kapat">&times;</button>
+    <h3 id="lightboxTitle" style="font-size:1.6rem; margin-bottom:1rem;">Görsel Detayı</h3>
+    <img id="lightboxImg" src="" alt="" style="max-width:100%; max-height:60vh; object-fit:contain; display:block; margin:0 auto 1rem;">
   </div>
 </div>
 
 <footer>
   <p>&copy; 2026 Fc Tasarım (Fc Wedding Accessories &amp; Bridal Bouquet). Tüm Hakları Saklıdır.</p>
-  <p style="margin-top:.5rem; font-size:.8rem; opacity:.8;">Saatçi Apt, Kurtuluş, Şinasi Efendi Cd. 01160 Seyhan/Adana</p>
+  <p style="margin-top:.5rem; font-size:.8rem; opacity:.8;">Saatçi Apt, Kurtuluş, Şinasi Efendi Cd. Seyhan / Adana</p>
 </footer>
 
 <script>
-function openLightbox(title) {
+// Hamburger Menu
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+document.addEventListener('click', (e) => {
+  if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+    navLinks.classList.remove('active');
+  }
+});
+
+// Lightbox
+let previousActiveElement;
+
+function openLightbox(title, imgUrl) {
+  previousActiveElement = document.activeElement;
   document.getElementById('lightboxTitle').innerText = title;
-  document.getElementById('lightboxModal').classList.add('active');
+  const imgElem = document.getElementById('lightboxImg');
+  imgElem.src = imgUrl;
+  imgElem.alt = title;
+  
+  const modal = document.getElementById('lightboxModal');
+  modal.classList.add('active');
+  modal.querySelector('.lightbox-close').focus();
+}
+
+function closeLightboxDirect() {
+  const modal = document.getElementById('lightboxModal');
+  modal.classList.remove('active');
+  if (previousActiveElement) previousActiveElement.focus();
 }
 
 function closeLightbox(event) {
   if (event.target.id === 'lightboxModal') {
-    document.getElementById('lightboxModal').classList.remove('active');
+    closeLightboxDirect();
   }
 }
 
-function closeLightboxDirect() {
-  document.getElementById('lightboxModal').classList.remove('active');
-}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('lightboxModal');
+    if (modal.classList.contains('active')) {
+      closeLightboxDirect();
+    }
+  }
+});
 
+// Form Submit (Katı Telefon Kontrolü)
 function handleFormSubmit(e) {
   e.preventDefault();
-  alert('Talebiniz alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.');
+  const name = document.getElementById('formName').value;
+  const phone = document.getElementById('formPhone').value;
+  const product = document.getElementById('formProduct').value || 'Belirtilmedi';
+  const date = document.getElementById('formDate').value || 'Belirtilmedi';
+  const message = document.getElementById('formMessage').value || 'Detay girilmedi';
+
+  if (phone.length < 10 || phone.length > 11) {
+    alert('Lütfen geçerli bir telefon numarası giriniz (10 veya 11 hane).');
+    return;
+  }
+
+  const waText = `Merhaba Fc Tasarım, web sitenizden bilgi almak istiyorum:%0A%0A` +
+    `*Ad Soyad:* ${encodeURIComponent(name)}%0A` +
+    `*Telefon:* ${encodeURIComponent(phone)}%0A` +
+    `*Ürün:* ${encodeURIComponent(product)}%0A` +
+    `*Düğün Tarihi:* ${encodeURIComponent(date)}%0A` +
+    `*Not:* ${encodeURIComponent(message)}`;
+
+  window.open(`https://wa.me/905324675755?text=${waText}`, '_blank');
 }
 </script>
 
