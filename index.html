@@ -22,9 +22,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
+/* Mobilde ve Karanlık Modda Renklerin Bozulmasını Kesin Olarak Engelleyen Kilit */
+:root {
   color-scheme: light !important;
-  forced-color-adjust: none !important;
   --ivory: #f7f3ec;
   --cream: #efe9de;
   --sage: #a9ad9b;
@@ -34,30 +34,44 @@
   --white: #ffffff;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  forced-color-adjust: none !important;
-}
-
-html{
-  color-scheme: light !important;
+html, body {
   background-color: #f7f3ec !important;
   color: #2a2a26 !important;
-  scroll-behavior:smooth;
+  color-scheme: light !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root, html, body {
+    background-color: #f7f3ec !important;
+    color: #2a2a26 !important;
+    color-scheme: light !important;
+  }
+  header {
+    background-color: rgba(247, 243, 236, 0.96) !important;
+  }
+  .alt-bg {
+    background-color: #efe9de !important;
+  }
+  .card, input, textarea, select {
+    background-color: #ffffff !important;
+    color: #2a2a26 !important;
+  }
+  .hero-wrapper {
+    background: linear-gradient(160deg, #f7f3ec 0%, #efe9de 50%, #a9ad9b 150%) !important;
+  }
+  .nav-links {
+    background-color: #f7f3ec !important;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
   font-family:'Jost',sans-serif;
   font-weight:300;
-  color: var(--ink) !important;
-  background-color: var(--ivory) !important;
   line-height:1.7;
   overflow-x:hidden;
-  color-scheme: light !important;
 }
-
 h1,h2,h3,h4{
   font-family:'Cormorant Garamond',serif;
   font-weight:500;
@@ -69,7 +83,7 @@ header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(247,243,236,.96) !important;
+  background:rgba(247,243,236,.96);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
@@ -88,7 +102,7 @@ header{
   letter-spacing:.2em;
   text-transform:uppercase;
   text-decoration:none;
-  color:var(--ink) !important;
+  color:var(--ink);
   font-weight:600;
 }
 
@@ -103,7 +117,7 @@ header{
   text-decoration:none;
   transition:color .2s ease;
 }
-.nav-links a:hover{color:var(--sage-d) !important}
+.nav-links a:hover{color:var(--sage-d)}
 
 .hamburger{
   display:none;
@@ -117,7 +131,7 @@ header{
   display:block;
   width:24px;
   height:2px;
-  background:var(--ink) !important;
+  background:var(--ink);
   margin:5px 0;
   transition:all .3s ease;
 }
@@ -130,7 +144,7 @@ header{
   place-items:center;
   text-align:center;
   padding:4rem 1.25rem;
-  background:linear-gradient(160deg, #f7f3ec 0%, #efe9de 50%, #a9ad9b 150%) !important;
+  background:linear-gradient(160deg, var(--ivory) 0%, var(--cream) 50%, var(--sage) 150%);
 }
 .hero-content{
   max-width:750px;
@@ -140,7 +154,7 @@ header{
   letter-spacing:.35em;
   text-transform:uppercase;
   font-size:.8rem;
-  color:var(--sage-d) !important;
+  color:var(--sage-d);
   display:block;
   margin-bottom:1rem;
   font-weight:500;
@@ -149,17 +163,16 @@ header{
   font-size:clamp(2.8rem, 6vw, 4.8rem);
   margin-bottom:1.2rem;
   font-weight:400;
-  color: var(--ink) !important;
 }
 .hero h1 em{
   font-style:italic;
-  color:var(--sage-d) !important;
+  color:var(--sage-d);
 }
 .hero p{
   max-width:580px;
   margin:0 auto 2.5rem;
   font-size:1.05rem;
-  color:#3a3a34 !important;
+  color:#3a3a34;
 }
 
 /* Buttons */
@@ -172,27 +185,27 @@ header{
 .btn{
   display:inline-block;
   padding:.85rem 2rem;
-  border:1px solid var(--ink) !important;
-  color:var(--ink) !important;
+  border:1px solid var(--ink);
+  color:var(--ink);
   text-decoration:none;
   font-size:.85rem;
   letter-spacing:.15em;
   text-transform:uppercase;
   transition:all .3s ease;
-  background:transparent !important;
+  background:transparent;
   cursor:pointer;
   font-family:inherit;
 }
 .btn:hover,.btn.fill{
-  background:var(--ink) !important;
-  color:var(--white) !important;
+  background:var(--ink);
+  color:var(--white);
 }
 .btn.fill:hover{
-  background:var(--sage-d) !important;
-  border-color:var(--sage-d) !important;
+  background:var(--sage-d);
+  border-color:var(--sage-d);
 }
 
-/* Sections Common */
+/* Layout Sections */
 section{
   max-width:1100px;
   margin:auto;
@@ -205,11 +218,10 @@ section{
 .title h2{
   font-size:clamp(2.2rem, 4vw, 3rem);
   font-weight:400;
-  color:var(--ink) !important;
 }
 .title span{
   display:block;
-  color:var(--sage-d) !important;
+  color:var(--sage-d);
   letter-spacing:.3em;
   font-size:.75rem;
   text-transform:uppercase;
@@ -217,7 +229,7 @@ section{
   font-weight:500;
 }
 .alt-bg{
-  background:var(--cream) !important;
+  background:var(--cream);
   width:100%;
 }
 
@@ -228,7 +240,7 @@ section{
   gap:1.8rem;
 }
 .card{
-  background:var(--white) !important;
+  background:var(--white);
   border:1px solid var(--line);
   transition:transform .3s ease, box-shadow .3s ease;
   overflow:hidden;
@@ -241,7 +253,7 @@ section{
   aspect-ratio:4/5;
   width:100%;
   position:relative;
-  background:linear-gradient(135deg, var(--cream), var(--sage)) !important;
+  background:linear-gradient(135deg, var(--cream), var(--sage));
   overflow:hidden;
 }
 .img-container img{
@@ -257,11 +269,11 @@ section{
 .img-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 60%) !important;
+  background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 60%);
   display:flex;
   align-items:flex-end;
   padding:1.2rem;
-  color:var(--white) !important;
+  color:var(--white);
   font-family:'Cormorant Garamond',serif;
   font-size:1.3rem;
   font-style:italic;
@@ -274,11 +286,10 @@ section{
 .card h3{
   font-size:1.5rem;
   margin-bottom:.4rem;
-  color:var(--ink) !important;
 }
 .card p{
   font-size:.92rem;
-  color:#4a4a44 !important;
+  color:#4a4a44;
 }
 
 /* Steps */
@@ -291,7 +302,7 @@ section{
 .steps b{
   font-family:'Cormorant Garamond',serif;
   font-size:3.2rem;
-  color:var(--sage-d) !important;
+  color:var(--sage-d);
   font-weight:400;
   display:block;
   line-height:1;
@@ -300,11 +311,10 @@ section{
 .steps h3{
   font-size:1.4rem;
   margin-bottom:.5rem;
-  color:var(--ink) !important;
 }
 .steps p{
   font-size:.9rem;
-  color:#555 !important;
+  color:#555;
 }
 
 /* Gallery */
@@ -318,7 +328,7 @@ section{
   cursor:pointer;
   overflow:hidden;
   position:relative;
-  background:linear-gradient(135deg, var(--ivory), var(--cream)) !important;
+  background:linear-gradient(135deg, var(--ivory), var(--cream));
   border:1px solid var(--line);
 }
 .gal-item img{
@@ -350,14 +360,13 @@ summary{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  color:var(--ink) !important;
 }
 summary::-webkit-details-marker{display:none}
 summary::after{
   content:'+';
   font-family:'Jost',sans-serif;
   font-size:1.2rem;
-  color:var(--sage-d) !important;
+  color:var(--sage-d);
   transition:transform .3s ease;
 }
 details[open] summary::after{
@@ -366,7 +375,7 @@ details[open] summary::after{
 details p{
   margin-top:.8rem;
   font-size:.95rem;
-  color:#4a4a44 !important;
+  color:#4a4a44;
 }
 
 /* Form */
@@ -380,15 +389,15 @@ input, textarea, select{
   width:100%;
   padding:1rem 1.2rem;
   border:1px solid var(--line);
-  background:var(--white) !important;
+  background:var(--white);
   font-family:inherit;
   font-size:.95rem;
-  color:var(--ink) !important;
+  color:var(--ink);
   outline:none;
   transition:border-color .3s ease;
 }
 input:focus, textarea:focus, select:focus{
-  border-color:var(--sage-d) !important;
+  border-color:var(--sage-d);
 }
 .wa-btn{
   display:flex;
@@ -397,12 +406,12 @@ input:focus, textarea:focus, select:focus{
   gap:.5rem;
   margin:1.8rem auto 0;
   font-size:.95rem;
-  color:var(--sage-d) !important;
+  color:var(--sage-d);
   text-decoration:none;
   font-weight:500;
   transition:color .2s;
 }
-.wa-btn:hover{color:var(--ink) !important}
+.wa-btn:hover{color:var(--ink)}
 
 /* Floating WhatsApp & Instagram Buttons */
 .floating-cta-container{
@@ -421,7 +430,7 @@ input:focus, textarea:focus, select:focus{
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#ffffff !important;
+  color:#ffffff;
   box-shadow:0 4px 16px rgba(0,0,0,0.22);
   transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow .3s;
   text-decoration:none;
@@ -431,10 +440,10 @@ input:focus, textarea:focus, select:focus{
   box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
 .floating-wa{
-  background-color:#25D366 !important;
+  background-color:#25D366;
 }
 .floating-ig{
-  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
 }
 .floating-cta-btn svg{
   width:28px;
@@ -446,7 +455,7 @@ input:focus, textarea:focus, select:focus{
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85) !important;
+  background:rgba(0,0,0,.85);
   z-index:1000;
   display:none;
   place-items:center;
@@ -458,7 +467,7 @@ input:focus, textarea:focus, select:focus{
 .lightbox-content{
   max-width:600px;
   width:100%;
-  background:var(--ivory) !important;
+  background:var(--ivory);
   padding:2rem;
   border:1px solid var(--line);
   text-align:center;
@@ -472,14 +481,14 @@ input:focus, textarea:focus, select:focus{
   border:none;
   font-size:1.8rem;
   cursor:pointer;
-  color:var(--ink) !important;
+  color:var(--ink);
   line-height:1;
 }
 
 /* Footer */
 footer{
-  background:var(--ink) !important;
-  color:#cfcabd !important;
+  background:var(--ink);
+  color:#cfcabd;
   text-align:center;
   padding:3rem 1rem;
   font-size:.88rem;
@@ -498,7 +507,7 @@ footer{
     top:100%;
     left:0;
     right:0;
-    background:var(--ivory) !important;
+    background:var(--ivory);
     flex-direction:column;
     padding:1.5rem;
     gap:1.2rem;
@@ -620,8 +629,9 @@ footer{
 
       <article class="card">
         <div class="img-container">
-          <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600" 
-               alt="Kişiye özel gelin sabahlığı" loading="lazy">
+          <!-- Aydınlık, şık ve ferah yeni gelin sabahlığı hazırlık görseli -->
+          <img src="https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=600" 
+               alt="Kişiye özel ipek saten gelin sabahlığı" loading="lazy">
           <div class="img-overlay">Saten Gelin Sabahlığı</div>
         </div>
         <div class="t">
@@ -706,8 +716,8 @@ footer{
         <h2>Gelinlerimizden Kareler</h2>
       </div>
       <div class="gal">
-        <div class="gal-item" onclick="openLightbox('Kişiye Özel Nakışlı Sabahlık', 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800')">
-          <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Sabahlığı" loading="lazy">
+        <div class="gal-item" onclick="openLightbox('Kişiye Özel Nakışlı Sabahlık', 'https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=800')">
+          <img src="https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Sabahlığı Hazırlık" loading="lazy">
         </div>
         <div class="gal-item" onclick="openLightbox('Gelin Buketi Detayı', 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800')">
           <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gelin Buketi" loading="lazy">
